@@ -14,6 +14,9 @@ public class SpringDataApplication implements CommandLineRunner {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    AutorRepository autorRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringDataApplication.class, args);
     }
@@ -21,18 +24,29 @@ public class SpringDataApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Product product = new Product();
-        product.setName("Snickers");
-        product.setDescription("chocolate");
+//        Product product = new Product();
+//        product.setName("Snickers");
+//        product.setDescription("chocolate");
+//
+//        productRepository.save(product);
+//
+//        Optional<Product> product1 = productRepository.findProductByName("Snickers");
+//
+//        product1.ifPresent(System.out::println);
+//
+//        List<Product> products = productRepository.fetchAllByName("Snickers");
+//        System.out.println("Size: " + products.size());
 
-        productRepository.save(product);
 
-        Optional<Product> product1 = productRepository.findProductByName("Snickers");
+        Autor autor1 = new Autor();
+        autor1.setFirstName("William");
+        autor1.setSecondName("Shakespeare");
+        autorRepository.save(autor1);
 
-        product1.ifPresent(System.out::println);
+        Autor autor2 = new Autor();
+        autor2.setNickName("Autor Wymyslony");
+        autorRepository.save(autor2);
 
-        List<Product> products = productRepository.fetchAllByName("Snickers");
-        System.out.println("Size: " + products.size());
 
     }
 }
