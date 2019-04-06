@@ -17,6 +17,9 @@ public class SpringDataApplication implements CommandLineRunner {
     @Autowired
     AutorRepository autorRepository;
 
+    @Autowired
+    BookRepository bookRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringDataApplication.class, args);
     }
@@ -47,6 +50,15 @@ public class SpringDataApplication implements CommandLineRunner {
         autor2.setNickName("Autor Wymyslony");
         autorRepository.save(autor2);
 
+        Book book1 = new Book();
+        book1.setTitle("Book title");
+        book1.setYear(2015);
+        bookRepository.save(book1);
+
+        Book book2 = new Book();
+        book2.setTitle("New book");
+        book2.setYear(2019);
+        bookRepository.save(book2);
 
     }
 }
